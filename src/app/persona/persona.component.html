@@ -1,10 +1,5 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div>
-        <p> {{i + 1}}.{{persona.nombre}} {{persona.apellido}} </p>
-      </div>
-    </div>
-  </div>
+<div class="item">
+  <input type="checkbox" (click)="emitirSaludo()">
+  <p>{{i + 1}}.{{persona.nombre}} {{persona.apellido}}</p>
 </div>
 
