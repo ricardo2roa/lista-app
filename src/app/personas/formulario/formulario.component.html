@@ -7,7 +7,7 @@
                name="apellido" id="apellido"
                placeholder="Apellido" [(ngModel)]="apellidoInput" required>
         <button type="submit" style="cursor: pointer">+</button>
-        <button *ngIf="index != null"  type="submit" style="cursor: pointer" (click)="eliminarPersona()" >
+        <button *ngIf="index != null"  type="submit" style="cursor: pointer;background-color: red;" (click)="eliminarPersona()" >
           <fa-icon [icon]="trashIcon" style="font-size: 20px;text-align: center;"></fa-icon>
         </button>
     </form>

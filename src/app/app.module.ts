@@ -9,14 +9,18 @@ import { PersonasService } from './personas.service';
 import { LoggingService } from './loggingService.service';
 import {AppRoutingModule} from "./app-routing.module";
 import { PersonasComponent } from './personas/personas.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ErrorComponentComponent } from './personas/error-component/error-component.component';
+import { ErrorComponent } from './personas/error/error.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaComponent,
     FormularioComponent,
-    PersonasComponent
+    PersonasComponent,
+    ErrorComponentComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
