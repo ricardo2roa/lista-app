@@ -6,16 +6,25 @@ import {DataServices} from "./data.services";
 @Injectable()
 export class PersonasService{
 
-  personas: Persona[] = [new Persona('Juan','Perez'),
-  new Persona('Ricardo','Roa'),new Persona('Felipe','Guzman')];
+  personas: Persona[] = [];
 
   constructor(private logginService: LoggingService, private dataservice:DataServices){}
 
   saludar = new EventEmitter<Number>();
 
+  setPersonas(personas:Persona[]){
+    this.personas = personas;
+  }
+
+  obtenerPersona(){
+      return this.dataservice.cargarPersona();
+  }
+
   agregarPersona(persona:Persona){
+    if(this.personas == null){
+      this.personas = [];
+     }
     this.personas.push(persona)
-    this.logginService.imprimir(`Enviamos persona: ${persona.nombre} ${persona.apellido}`)
     this.dataservice.guardarPersonas(this.personas)
   }
 
@@ -26,8 +35,16 @@ export class PersonasService{
   modificarPersona(i:number,persona:Persona){
     this.personas[i].nombre = persona.nombre
     this.personas[i].apellido = persona.apellido
+    this.dataservice.modificarPersona(i,persona)
   }
   eliminarPersona(i:number){
     this.personas.splice(i,1)
+    this.dataservice.eliminarPersona(i);
+    this.modificarPersonas();
+  }
+  modificarPersonas(){
+    if(this.personas != null){
+      this.dataservice.guardarPersonas(this.personas);
+    }
   }
 }

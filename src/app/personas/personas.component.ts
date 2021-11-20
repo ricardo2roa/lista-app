@@ -17,7 +17,12 @@ export class PersonasComponent implements OnInit {
     private personasService : PersonasService){}
 
   ngOnInit(): void {
-    this.personas = this.personasService.personas
+    this.personasService.obtenerPersona().subscribe(
+      (personas:any) => {
+        this.personas = personas;
+        this.personasService.setPersonas(personas);
+      }
+    );
   }
 
   agregar(){

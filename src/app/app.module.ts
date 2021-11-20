@@ -13,6 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ErrorComponent } from './personas/error/error.component'
 import {DataServices} from "./data.services";
 import {HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './login/login.component';
+import {LoginService} from "./login/login.service";
 
 @NgModule({
   declarations: [
@@ -20,16 +22,17 @@ import {HttpClientModule} from "@angular/common/http";
     PersonaComponent,
     FormularioComponent,
     PersonasComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [PersonasService,LoggingService,DataServices],
+  providers: [PersonasService,LoggingService,DataServices,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
