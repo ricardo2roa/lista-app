@@ -11,6 +11,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import { PersonasComponent } from './personas/personas.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ErrorComponent } from './personas/error/error.component'
+import {DataServices} from "./data.services";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { ErrorComponent } from './personas/error/error.component'
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [PersonasService,LoggingService],
+  providers: [PersonasService,LoggingService,DataServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
