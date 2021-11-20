@@ -9,6 +9,7 @@ import { PersonasService } from './personas.service';
 import { LoggingService } from './loggingService.service';
 import {AppRoutingModule} from "./app-routing.module";
 import { PersonasComponent } from './personas/personas.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PersonasComponent } from './personas/personas.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [PersonasService,LoggingService],
   bootstrap: [AppComponent]

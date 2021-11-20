@@ -1,16 +1,14 @@
-<form class="item">
-
-    <input type="text"
-           name="nombre" id="nombre"
-           placeholder="Nombre" [(ngModel)]="nombreInput">
-
-
-    <input type="text"
-           name="apellido" id="apellido"
-           placeholder="Apellido" [(ngModel)]="apellidoInput">
-
-    <button type="submit" (click)="agregarPersona()">
-      +
-    </button>
-
-</form>
+ <div class="box">
+    <form class="item" #f = "ngForm" (ngSubmit)=" f.form.valid && agregarPersona()">
+        <input type="text"
+               name="nombre" id="nombre"
+               placeholder="Nombre" [(ngModel)]="nombreInput" required >
+        <input type="text"
+               name="apellido" id="apellido"
+               placeholder="Apellido" [(ngModel)]="apellidoInput" required>
+        <button type="submit" style="cursor: pointer">+</button>
+        <button *ngIf="index != null"  type="submit" style="cursor: pointer" (click)="eliminarPersona()" >
+          <fa-icon [icon]="trashIcon" style="font-size: 20px;text-align: center;"></fa-icon>
+        </button>
+    </form>
+</div>

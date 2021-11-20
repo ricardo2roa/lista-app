@@ -17,4 +17,15 @@ export class PersonasService{
     this.logginService.imprimir(`Enviamos persona: ${persona.nombre} ${persona.apellido}`)
   }
 
+  encontrarPersona(i:number){
+    return this.personas[i]
+  }
+
+  modificarPersona(i:number,persona:Persona){
+    this.personas[i].nombre = persona.nombre
+    this.personas[i].apellido = persona.apellido
+  }
+  eliminarPersona(i:number){
+    this.personas.splice(i,1)
+  }
 }

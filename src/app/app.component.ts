@@ -8,14 +8,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   titulo:string = 'Listado de Personas';
-  personas: Persona[] = [];
-
-  constructor(private personasService : PersonasService){}
-
-  ngOnInit(): void {
-    this.personas = this.personasService.personas
-  }
 
 }
