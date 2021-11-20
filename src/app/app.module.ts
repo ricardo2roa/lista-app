@@ -10,7 +10,6 @@ import { LoggingService } from './loggingService.service';
 import {AppRoutingModule} from "./app-routing.module";
 import { PersonasComponent } from './personas/personas.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ErrorComponentComponent } from './personas/error-component/error-component.component';
 import { ErrorComponent } from './personas/error/error.component'
 
 @NgModule({
@@ -19,7 +18,6 @@ import { ErrorComponent } from './personas/error/error.component'
     PersonaComponent,
     FormularioComponent,
     PersonasComponent,
-    ErrorComponentComponent,
     ErrorComponent
   ],
   imports: [
