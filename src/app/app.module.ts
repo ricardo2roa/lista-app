@@ -15,6 +15,9 @@ import {DataServices} from "./data.services";
 import {HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
 import {LoginService} from "./login/login.service";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import {LoginService} from "./login/login.service";
     FormularioComponent,
     PersonasComponent,
     ErrorComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,8 @@ import {LoginService} from "./login/login.service";
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [PersonasService,LoggingService,DataServices,LoginService],
   bootstrap: [AppComponent]

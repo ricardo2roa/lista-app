@@ -11,4 +11,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class AppComponent {
   titulo:string = 'Listado de Personas';
 
+  salir(){
+    
+  }
 }
