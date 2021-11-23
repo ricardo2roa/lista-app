@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {Router} from "@angular/router";
@@ -7,22 +7,9 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class LoginService{
-  token: string;
+  token: any;
 
-  constructor(private router:Router) {}
-  login(email:string,password:string){
-    /*
-    firebase.auth().signInWithEmailAndPassword(email, password).then(
-      (response:any) =>{
-        firebase.auth().currentUser!.getIdToken().then(
-          (token:any) =>{
-            this.token = token;
-          }
-        )
-      }
-    );
-    this.router.navigate(['/']);
-     */
+  constructor(private router:Router) {
     const firebaseConfig = {
       apiKey: "AIzaSyANCbncyMD_mzM3Fu04UaD2I5fmzDDu6VI",
       authDomain: "listado-personas-a71f1.firebaseapp.com",
@@ -34,9 +21,12 @@ export class LoginService{
       measurementId: "G-67BMF9ZJ8Q"
     };
 
-// Initialize Firebase
+    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+  }
+
+  login(email:string,password:string){
 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -62,5 +52,21 @@ export class LoginService{
 
   getIdToken(){
     return this.token;
+  }
+
+  isAutenticado(){
+    return this.token != null;
+  }
+
+  logout(){
+    const auth = getAuth();
+    signOut(auth)
+      .then(() =>{
+        this.token = null;
+        this.router.navigate(["login"]);
+      }).catch((error)=>{
+      const errorMessage = error.message;
+       console.log('Error al cerrar la sesion '+errorMessage)
+      })
   }
 }

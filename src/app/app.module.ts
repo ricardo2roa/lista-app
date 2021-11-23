@@ -18,6 +18,7 @@ import {LoginService} from "./login/login.service";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import {LoginGuardian} from "./login/login-guardian.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import {environment} from "../environments/environment";
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [PersonasService,LoggingService,DataServices,LoginService],
+  providers: [PersonasService,LoggingService,DataServices,LoginService,LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
